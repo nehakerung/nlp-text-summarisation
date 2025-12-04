@@ -1,27 +1,46 @@
 # Summarisation of News Articles
 
-This model is trained to summarise text
-
-Train a summarisation model that can automatically generate short summaries of news articles. 
-
-You’ll
-be using the provided dataset, where each article is paired with a human-written summary. 
-
-You are
-expected to carry out text preprocessing as needed (cleaning, tokenization, lowercasing, stop-word
-removal, etc.), prepare the dataset for training, and design a summarisation model. 
-
-You should
-evaluate the quality of the generated summaries using ROUGE/BLEU scores
+This project is an text summarisation model specifically trained on a dataset of news articles and reference summaries.
+It explores transformer based models BART and DistilBART to generate accurate summaries. It includes full preprocessing, dataset handling, model fine-tuning, and evaluation of models.
 
 ## Instructions to run code
+All instructions and code paths depend on whether you're running locally or in a cloud notebook environment such as Google Colab.
 
-Depending on what IDE you use, there are certain code changes needed. Follow main.ipynb to follow
+1. Local Notebook / IDE
 
-Pip install ... if working on ide wirh terminal if on notebook and colab run file as mentione on maon
+    * Make sure Python and pip are installed
+    * Install required libraries: `pip install -r requirements.txt`
+    * Open and follow the notebook, main.ipynb, sequentially
 
-## Google Colab 
+2. Google Colab
 
-Upload dataset to temporary slot
+    * Open and follow the notebook, main.ipynb, sequentially
 
-python3 -m spacy download en_core_web_sm
+#### About Dataset
+Thehe original dataset is included on the repo.
+
+If you would like to use your own dataset, a compatible folder layout would look like the following; where the number of articles coresponds with the same number summary.
+```
+dataset
+├── Articles
+│   └── 001.txt
+|   ├── 002.txt
+|   ...
+|   └── 511.txt
+└── Summary
+    └── 001.txt
+    ├── 002.txt
+    ...
+    └── 511.txt
+```
+Please bear in mind, in colab you will have to take several extra steps:
+* Save the dataset folder as a zip file
+* Upload to the current colab workspace as a zip file
+* Unzip via following
+
+```
+!unzip /content/dataset.zip
+```
+## Model choice
+distilBART was initially used
+BART
